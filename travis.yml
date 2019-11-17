@@ -1,0 +1,11 @@
+#travis encrypt db687d10f94419f090bbc421cf0e7b4ae310d782
+language: java
+addons:
+  sonarcloud:
+    organization: "tronsez"
+    token:
+      secure: "db687d10f94419f090bbc421cf0e7b4ae310d782" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
